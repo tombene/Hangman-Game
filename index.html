@@ -1,23 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Permanent+Marker" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
 	<script src="js/hangman.js"></script>
 	<title>Document</title>
 </head>
+
 <body>
 	<main class="">
+		<nav class="header centerText">
+			<h1>Lets waste time and play hangman!</h1>
+			<div class="row">
+				<div id="easy" class="difficulty">easy</div>
+				<div id="medium" class="difficulty">medium</div>
+				<div id="hard" class="difficulty">hard</div>
+			</div>
+		</nav>
 		<!--Left side game display section for viewing different presented items based off of user guesses or results -->
-		<section id="resultAlert">
+		<section class="row">
+			<div id="left-container">
+				<span id="difficulty">Taking it easy.</span>
+				<span id="displayImage"></span>
+				<span id="displayImageText"></span>
+				<span id="warning"></span>
+			</div>
+			<!-- right side game display div for updating game progress and status -->
+			<div id="right-container">
+				<h1>Wins:
+					<span id="wins"></span>
+				</h1>
+				<h1>Losses:
+					<span id="losses"></span>
+				</h1>
+				<h1>Current Word</h1>
+				<span id="progressWord"></span>
+				<h1>Number Of Guesses Remaining</h1>
+				<span id="guessesRemaining"></span>
+				<h1>Letters Already Guessed</h1>
+				<span id="lettersGuessed"></span>
+			</div>
+			<div class="clear"></div>
 
 		</section>
-		<!-- right side game display section for updating game progress and status -->
-		<section id="gameStatus">
-			<h1>Press any key to get started!</h1>
-		</section>
+
 	</main>
 </body>
+
 </html>
