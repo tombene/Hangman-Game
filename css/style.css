@@ -16,20 +16,28 @@ main {
 	width: 60%;
 	padding: 2%;
 	background-image: url("../images/chalkboard-background.jpg");
-	border: 2px solid grey;
+	border: 3px solid grey;
+	color: white;
+}
+
+h2 {
+	font-size: 12px;
 }
 
 #warning{
 	color: red;
 }
 
-h1 {
-	color: white;
+.win-img {
+	width: 100%;
+	max-height: 200px;
+	margin-right: 2%;
 }
 
-.centerText {
+.center-text {
 	margin: auto;
 	line-height: 100%;
+	text-align: center;
 }
 
 .header {
@@ -42,28 +50,33 @@ h1 {
 	color:	lightblue;
 	text-align: center;
 	padding: 2%;
+	cursor: pointer;
 }
 
-section {
-	width: 90%;
-}
 .left-container {
-	width: 40%;
+	width: 50%;
+	height: 100%;
 	float: left;
 }
 
 .right-container {
-	width: 40%;
+	width: 50%;
+	height: 100%;
 	float: left; 
 }
 
-/* .row {
-	display: inline-block;
+.row {
+	display: flex;
 	width: 100%;
-} */
+}
 
 .row:after {
   content: "";
   display: table;
   clear: both;
+}
+
+.displayImg {
+	padding-right: 2%;
+	margin-right: 2%;
 }

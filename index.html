@@ -15,24 +15,25 @@
 
 <body>
 	<main class="">
-		<nav class="header centerText">
+		<nav class="header center-text">
 			<h1>Lets waste time and play hangman!</h1>
-			<div class="row">
+			press any key to play in easy mode or select a different difficulty.<br>
 				<div id="easy" class="difficulty">easy</div>
 				<div id="medium" class="difficulty">medium</div>
 				<div id="hard" class="difficulty">hard</div>
-			</div>
+			
 		</nav>
 		<!--Left side game display section for viewing different presented items based off of user guesses or results -->
-		<section class="row">
-			<div id="left-container">
-				<span id="difficulty">Taking it easy.</span>
+		<div class="row">
+			<div class="left-container">
+				<h1 id="difficulty">Taking it easy.</h1>
 				<span id="displayImage"></span>
 				<span id="displayImageText"></span>
 				<span id="warning"></span>
 			</div>
+			
 			<!-- right side game display div for updating game progress and status -->
-			<div id="right-container">
+			<div class="right-container">
 				<h1>Wins:
 					<span id="wins"></span>
 				</h1>
@@ -40,15 +41,15 @@
 					<span id="losses"></span>
 				</h1>
 				<h1>Current Word</h1>
-				<span id="progressWord"></span>
+				<span class="input-change center-text"id="progressWord">_</span>
 				<h1>Number Of Guesses Remaining</h1>
-				<span id="guessesRemaining"></span>
+				<span class="input-change center-text" id="guessesRemaining">_</span>
 				<h1>Letters Already Guessed</h1>
-				<span id="lettersGuessed"></span>
+				<span class="input-change center-text" id="lettersGuessed">_</span>
 			</div>
 			<div class="clear"></div>
 
-		</section>
+		</div>
 
 	</main>
 </body>
