@@ -73,13 +73,13 @@ var game = {
 	setUp: function () {
 		this.lettersGuessed = "";
 		this.guessCount = 0;
-		setGuessCount();
+		this.setGuessCount();
 		this.getRandomWord();
 		this.progressWord = "";
 		for (var i = 0; i < this.currentWord.length; i++) {
 			this.progressWord += "_";
 		}
-		this.allowedGuesses = setGuessCount();
+		this.allowedGuesses = this.setGuessCount();
 		this.updateChalkBoard();
 	},
 	// removes the used word from the array so that it will not be picked again while playing.
@@ -123,41 +123,39 @@ var game = {
 		this.losses++;
 		this.removeUsedWord();
 		this.setUp();
-	}
-}
-
-// sets the value of guesses allowed base of length of the word
-function setGuessCount() {
-	var difficultyValue = 0;
-	switch (game.difficulty) {
-		case "easy":
-			return game.currentWord.length + 10;
-			break;
-		case "medium":
-			return game.currentWord.length + 5;
-			break;
-		case "hard":
-			return game.currentWord.length + 2;
-			break;
-		default:
-			return 13;
-	}
-}
-
-function makeAGuess(guess) {
-	//create the underscores where letters have not been guessed
-	for (var i = 0; i < game.currentWord.length; i++) {
-		if (game.currentWord.charAt(i) === guess) {
-			game.progressWord = game.updateProgressWord(i, guess);
+	},
+	makeAGuess: function (guess) {
+		//create the underscores where letters have not been guessed
+		for (var i = 0; i < this.currentWord.length; i++) {
+			if (this.currentWord.charAt(i) === guess) {
+				this.progressWord = this.updateProgressWord(i, guess);
+			}
 		}
-	}
-	game.guessCount++;
-
-	if (game.progressWord === game.currentWord) {
-		game.winner();
-	}
-	if ((game.allowedGuesses - game.guessCount) === 0) {
-		game.loser();
+		this.guessCount++;
+	
+		if (this.progressWord === this.currentWord) {
+			this.winner();
+		}
+		if ((this.allowedGuesses - this.guessCount) === 0) {
+			this.loser();
+		}
+	},
+	// sets the value of guesses allowed base of length of the word
+	setGuessCount: function () {
+		var difficultyValue = 0;
+		switch (this.difficulty) {
+			case "easy":
+				return this.currentWord.length + 10;
+				break;
+			case "medium":
+				return this.currentWord.length + 5;
+				break;
+			case "hard":
+				return this.currentWord.length + 2;
+				break;
+			default:
+				return 13;
+		}
 	}
 }
 
@@ -166,19 +164,19 @@ game.setUp();
 
 document.onkeyup = function (event) {
 	$('#warning').hide();
+	$('#displayImage').removeAttr('src');
 	var userGuess = event.key.toUpperCase();
 
 	//Verify that a letter in the alphabet is used
 	if (/^[a-zA-Z]+$/.test(userGuess) && userGuess.length < 2) {
 		game.addLettersGuessed(userGuess);
-		makeAGuess(userGuess);
+		game.makeAGuess(userGuess);
 		game.updateChalkBoard();
 	} else {
 		document.querySelector("#warning").innerHTML = "Please press only letters!";
 		$('#warning').show();
 	}
 }
-
 
 //Allow user to select a difficulty by pressing easy mediam or hard
 $(document).ready(function () {
