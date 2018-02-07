@@ -101,10 +101,12 @@ var game = {
 		});
 	},
 	winner: function () {
-		var imgSource = '<img class="win-img" src="images/' + this.currentWord.toLowerCase() + '.jpg">'
+		// var imgSource = '<img class="win-img" src="images/' + this.currentWord.toLowerCase() + '.jpg">'
+		var imgSource = 'images/' + this.currentWord.toLowerCase() + '.jpg'
 		this.wins++;
 		this.removeUsedWord();
-		$('#displayImage').append(imgSource);
+		// $('#displayImage').append(imgSource);
+		$('#theImg').attr('src',imgSource);
 		// console.log(this.checkFile());
 		// if(this.checkFile()){
 		// 	$.playSound('audio/' + this.currentWord.toLowerCase() + '.wav');
@@ -164,7 +166,8 @@ game.setUp();
 
 document.onkeyup = function (event) {
 	$('#warning').hide();
-	$('#displayImage').removeAttr('src');
+	$('#theImg').attr('src','');
+	$('#theImg').removeAttr('img');
 	var userGuess = event.key.toUpperCase();
 
 	//Verify that a letter in the alphabet is used
